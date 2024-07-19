@@ -6,7 +6,17 @@ second change
 
 third change
 
+<<<<<<< HEAD
 hell
 hello yagnesh
 hello dev
 hello from ayush
+=======
+hello
+
+ fourth change 
+
+ dhaval 
+
+ hello
+>>>>>>> dhaval
