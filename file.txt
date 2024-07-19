@@ -1,3 +1,6 @@
 blue
+<<<<<<< HEAD
  
  first change
+=======
+>>>>>>> logout
