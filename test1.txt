@@ -6,7 +6,12 @@ second change
 
 third change
 
+hell
 hello yagnesh
 hello dev
+<<<<<<< HEAD
 
 hello deep
+=======
+hello from ayush
+>>>>>>> refs/remotes/origin/main
