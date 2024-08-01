@@ -1,4 +1,0 @@
-merge file 
-hello world
-
-hello world 

@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-orange
-=======
-green
->>>>>>> a64f4183e76b31a12efecea487ec4e110ea214a2
