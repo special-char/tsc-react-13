@@ -45,7 +45,7 @@
       name="twitter:image"
       content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg"
     />
-    <link
+    <!-- <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/apple-touch-icon.png?v=1"
@@ -72,9 +72,47 @@
     <meta name="apple-mobile-web-app-title" content="The Special character" />
     <meta name="application-name" content="The Special character" />
     <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" /> -->
+
+    <link rel="shortcut icon" href="./assets/home.svg" type="image/svg+xml" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Executive Anvil",
+        "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
+        "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": 4,
+            "bestRating": 5
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Fred Benson"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 4.4,
+          "reviewCount": 89
+        }
+      }
+    </script>
   </head>
   <body>
-    <time datetime=""></time>
+    <img src="./assets/home.png" alt="" height="500px" width="500px" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="500px"
+      viewBox="0 -960 960 960"
+      width="500px"
+      fill="#000000"
+    >
+      <path
+        d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+      />
+    </svg>
   </body>
 </html>
