@@ -119,6 +119,143 @@
     </script>
   </head>
   <body>
+    <form oninput="fuel.value=age.value">
+      <fieldset>
+        <legend>Name</legend>
+        <div>
+          <label
+            for="firstName"
+            style="
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border-width: 0;
+            "
+            >Enter your First name</label
+          >
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="lastName"
+            style="
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border-width: 0;
+            "
+            >Enter your Last name</label
+          >
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            autocomplete="family-name"
+            required
+          />
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" autocomplete="tel" />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          autocomplete="email"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          title="Please enter valid email address like "
+        />
+      </div>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <div>
+          <input type="radio" name="gender" id="male" autocomplete="sex" />
+          <label for="male">Male</label>
+        </div>
+        <div>
+          <input type="radio" name="gender" id="female" autocomplete="sex" />
+          <label for="female">Female</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="hobbies">Hobbies</label>
+        <select name="hobbies" id="hobbies" multiple>
+          <option value="">Select Your Hobbies</option>
+          <optgroup label="Sports">
+            <option value="cricket">Cricket</option>
+            <option value="football">Football</option>
+          </optgroup>
+          <optgroup label="Activity">
+            <option value="painting">Painting</option>
+            <option value="dancing">Dancing</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- <div>
+        <label for="college">College Name</label>
+        <select name="college" id="college">
+          <option value="">Please select college name</option>
+          <option value="nirma">Nirma</option>
+          <option value="ldrp">ldrp</option>
+          <option value="other">other</option>
+        </select>
+      </div> -->
+
+      <div>
+        <label for="college">College Name</label>
+        <input type="text" list="college-list" />
+
+        <datalist id="college-list">
+          <option>Nirma</option>
+          <option>Ldrp</option>
+        </datalist>
+      </div>
+
+      <textarea name="" id=""></textarea>
+
+      <div>
+        <label for="age">Age</label>
+        <input type="range" name="age" id="age" min="0" max="100" value="20" />
+        <meter
+          id="fuel"
+          min="0"
+          max="100"
+          low="33"
+          high="66"
+          optimum="80"
+          value="63"
+        >
+          at 50/100
+        </meter>
+        <!-- <output name="result" for="age">20</output> -->
+      </div>
+
+      <button>Submit</button>
+    </form>
+
     <!-- <h1></h1>
     <img src="./assets/home.png" alt="" height="500px" width="500px" />
     <svg
