@@ -4,46 +4,212 @@
 <!--- Accesibility --->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
 
     <!--- Imp --->
     <!--- for resposive UI --->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--- SEO --->
     <title>Document</title>
     <!--- SEO --->
     <!--- 120-320 --->
-    <meta name="description" content="Dev'S Portfolio">
+    <meta name="description" content="Dev'S Portfolio" />
 
     <!--- 10 keyword --->
-    <meta name="keywords" content="react , react-native">
+    <meta name="keywords" content="react , react-native" />
 
     <!--- og:tage meta --->
     <meta property="og:title" content="How to Become an SEO Expert (8 Steps)" />
-    <meta property="og:description" content="Get from SEO newbie to SEO pro in 8 simple steps." />
-    <meta property="og:image"
-        content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" />
+    <meta
+      property="og:description"
+      content="Get from SEO newbie to SEO pro in 8 simple steps."
+    />
+    <meta
+      property="og:image"
+      content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png"
+    />
     <meta property="og:image:width" content="1200" />
 
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="book" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nytimes" />
+    <meta name="twitter:creator" content="@SarahMaslinNir" />
+    <meta name="twitter:title" content="Parade of Fans for Houston’s Funeral" />
+    <meta
+      name="twitter:description"
+      content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here."
+    />
+    <meta
+      name="twitter:image"
+      content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg"
+    />
+  </head>
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nytimes">
-    <meta name="twitter:creator" content="@SarahMaslinNir">
-    <meta name="twitter:title" content="Parade of Fans for Houston’s Funeral">
-    <meta name="twitter:description"
-        content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
-    <meta name="twitter:image"
-        content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
-</head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Enter your Name</legend>
+        <label for="firstName">Enter your First Name</label><br>
+        <input type="text" id="firstName" required autocomplete="family-name" placeholder="firstName"><br><br>
 
-<body>
 
-</body>
+        <label for="lasttName">Enter your Last Name</label><br>
+        <input type="text" id="lasttName" required autocomplete="family-name" placeholder="lasttName"><br><br>
+    </fieldset>
+</div><br>
 
+<fieldset>
+    <legend>Gender</legend>
+    <input type="radio" name="gender" id="male">
+    <label for="male">male</label><br>
+
+    <input type="radio" name="gender" id="female">
+    <label for="female">female</label><br>
+</fieldset>
+</div> <br>
+      <div>
+        <label
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+          "
+          for="button"
+          >Button</label
+        >
+        <input type="button" id="submit" value="Button" />
+      </div>
+      <div>
+        <label>Choose your hobbies:</label>
+
+        <label for="cricket">
+          <input type="checkbox" id="cricket" name="hobby" value="cricket" />
+          cricket
+        </label>
+
+        <label for="traveling">
+          <input
+            type="checkbox"
+            id="traveling"
+            name="hobby"
+            value="traveling"
+          />
+          traveling
+        </label>
+      </div>
+      <div>
+        <label for="color">Choose your favorite color:</label>
+        <input type="color" id="color" name="color" value="#000000" />
+      </div>
+      <div>
+        <label for="birthday">Select your birthday date:</label>
+        <input type="date" id="birthday" name="birthday" value="2000-01-01" />
+      </div>
+      <div>
+        <label for="appointment">Select your appointment date and time:</label>
+        <input
+          type="datetime-local"
+          id="appointment"
+          name="appointment"
+          value="2024-08-05T15:30"
+        />
+      </div>
+      <div>
+        <label for="appointment">Select Your appointment date and time:</label>
+        <input
+          type="datetime"
+          id="appointment"
+          name="appointment"
+          value="2024-08-05T15:30"
+        />
+      </div>
+      <div>
+        <label for="email">Enter your email:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="example@gmail.com"
+          required
+        />
+      </div>
+      <div>
+        <label for="file"></label>
+        <input type="file" id="file" />
+      </div>
+      <br>
+      <div>
+        <label for=""></label>
+        <input
+          type="image"
+          src="fantasy-art-warrior-dark-souls-iii-dark-souls-wallpaper-preview.jpg"
+          height="200px"
+          width="200px"
+          style="object-fit: cover;"
+        />
+      </div>
+      <br>
+      <div>
+        <label for="month">Enter Month</label>
+        <input type="month" id="month" />
+      </div>
+      <div>
+        <label for="number">Enter Number</label>
+        <input type="number" />
+      </div>
+      <div>
+        <label for="password">Enter password</label>
+        <input type="password" />
+      </div>
+      <div>
+        <label for="radio1">Select:</label>
+        <input type="radio" id="student" />
+      </div>
+      <div>
+        <label for="range"></label>
+        <input type="range" />
+      </div>
+      <div>
+        <label for="reset"></label>
+        <input type="reset" />
+      </div>
+      <div>
+        <label for="search">Search:</label>
+        <input type="search" />
+      </div>
+      <div>
+        <label for="submit">Submit</label>
+        <input type="submit" />
+      </div>
+      <div>
+        <label for="phonenumber">Enter Your Phone Number:</label>
+        <input type="tel" />
+      </div>
+      <div>
+        <label for="text">Enter Your Text Here:</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label for="time"></label>
+        <input type="time" />
+      </div>
+      <div>
+        <label for="url">Enter url here:</label>
+        <input type="url" />
+      </div>
+      <div>
+        <label for="week"></label>
+        <input type="week" />
+      </div>
+    </form>
+  </body>
 </html>
