@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+  </head>
+  <body>
+    <!-- <img
+      src="./assets/banner@3x.jpg"
+      alt="hello"
+      style="aspect-ratio: 16/9; width: 100%"
+    /> -->
+
+    <!-- <picture>
+      <source media="(min-width: 1280px)" srcset="./assets/banner@3x.jpg" />
+      <source media="(min-width: 1024px)" srcset="./assets/banner@2x.jpg" />
+      <img
+        src="./assets/banner@1x.jpg"
+        alt="banner"
+        style="aspect-ratio: 16 /9; width: 100%"
+      />
+    </picture> -->
+
+    <!-- <picture>
+      <source srcset="./assets/banner.avif" type="image/avif" />
+      <source srcset="./assets/banner.webp" type="image/webp" />
+      <img
+        src="./assets/banner@3x.jpg"
+        alt="banner"
+        style="aspect-ratio: 16 /9; width: 100%"
+      />
+    </picture> -->
+
+    <picture>
+      <source srcset="./assets/banner@1x.jpg, ./assets/banner@2x.jpg 2x" />
+      <img
+        src="./assets/banner@3x.jpg"
+        alt=""
+        style="aspect-ratio: 16 /9; width: 100%"
+      />
+    </picture>
+  </body>
+</html>

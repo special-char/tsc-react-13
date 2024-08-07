@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      /* all a tag inseide header tag */
+      /* space selector */
+      /* header a {
+        color: red;
+      } */
+
+      /* all a tag which is immidiate children of header tag */
+      /* > selector */
+      /* header > a {
+        color: red;
+      }
+
+      li > a {
+        color: green;
+      } */
+
+      /* h1 + a {
+        color: red;
+      } */
+
+      h1 ~ a {
+        color: red;
+      }
+
+      /* psudo class */
+
+      /* li:nth-child(1) > a {
+        color: green;
+      } */
+
+      li:nth-child(even) > a {
+        color: red;
+      }
+
+      li:nth-child(odd) > a {
+        color: green;
+      }
+
+      a:hover {
+        color: blue;
+      }
+
+      h1::after {
+        content: "..";
+      }
+
+      h1: ;
+      /* psudo element */
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#">Logo</a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button>Login</button>
+        <button>Register</button>
+      </div>
+    </header>
+    <main>
+      <section>
+        <h1>Home</h1>
+        <a href="#">Go to about</a>
+        <p>Lorem, ipsum.</p>
+        <a href="#">Go to about</a>
+        <a href="#">Go to about</a>
+      </section>
+      <section>
+        <h1>About</h1>
+        <a href="#">Go to Contact</a>
+        <p>Lorem, ipsum.</p>
+        <a href="#">Go to Contact</a>
+        <a href="#">Go to Contact</a>
+      </section>
+      <section>
+        <h1>Contact</h1>
+        <a href="#">Go to Home</a>
+        <p>Lorem, ipsum.</p>
+        <a href="#">Go to Home</a>
+        <a href="#">Go to Home</a>
+      </section>
+    </main>
+  </body>
+</html>
