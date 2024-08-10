@@ -1,0 +1,29 @@
+hello world from test1
+
+first change
+
+second change
+
+third change
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+hell
+hello yagnesh
+hello dev
+hello from ayush
+=======
+=======
+>>>>>>> dhaval
+hello
+
+ fourth change 
+
+ dhaval 
+
+<<<<<<< HEAD
+ hello
+>>>>>>> dhaval
+=======
+ hello
+>>>>>>> dhaval
