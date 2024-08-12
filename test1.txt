@@ -6,6 +6,8 @@ second change
 
 third change
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 hell
 hello yagnesh
 hello dev
@@ -14,4 +16,22 @@ hello dev
 hello deep
 =======
 hello from ayush
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/main
+=======
+=======
+=======
+>>>>>>> dhaval
+hello
+
+ fourth change 
+
+ dhaval 
+
+<<<<<<< HEAD
+ hello
+>>>>>>> dhaval
+=======
+ hello
+>>>>>>> dhaval
 >>>>>>> refs/remotes/origin/main

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test</title>
+</head>
+
+<body>
+  <!-- Question 1 Answer -->
+  <dialog open>
+    <h3>dialog box</h3>
+  </dialog>
+
+  <!-- Question 2 Answer -->
+  <nav>
+    <ul>
+      <li><a href="">Home</a></li>
+
+      <li>
+        <details>
+          <summary>About</summary>
+          <ul>
+            <li><a href="">sub-menu1</a></li>
+            <li><a href="">sub-menu2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="">Contact</a></li>
+      <li>
+        <details>
+          <summary>Services</summary>
+          <ul>
+            <li><a href="">sub-menu1</a></li>
+            <li><a href="">sub-menu2</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+  <!-- Question 3 Answer -->
+  <section style="border: 2px solid rgb(66, 43, 43); padding: 15px; margin-top: 55px">
+    <h2>Frequently Asked Question Answers (FAQ)</h2>
+    <details>
+      <summary>q1</summary>
+      <p>answer-1</p>
+    </details>
+    <details>
+      <summary>q2</summary>
+      <p>answer-2</p>
+    </details>
+    <details>
+      <summary>q3</summary>
+      <p>answer-3</p>
+    </details>
+  </section>
+  <!-- Question 4 Answer -->
+  <section>
+    <h1>Search Form</h1>
+    <form>
+      <label for="search">Search</label>
+      <input type="search" id="search" list="suggestions" placeholder="Type to search...." />
+      <datalist id="suggestions">
+        <option value="value1"></option>
+        <option value="value2"></option>
+        <option value="value3"></option>
+        <option value="value4"></option>
+      </datalist>
+
+      <button type="submit">Search</button>
+    </form>
+  </section>
+  <!-- Question 5 Answer-->
+  <section>
+    <h3>HTML5 Form</h3>
+    <form oninput="result.value=Rating.value">
+      <label for="textInput">Text Input:</label><br>
+      <input type="text" id="textInput" name="textInput" placeholder="Enter text here" required />
+      <br /><br />
+
+      <div>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" placeholder="Enter your Email" required autocomplete="email">
+      </div><br>
+
+      <div>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Enter your Password" required autocomplete="new-password">
+      </div><br>
+
+      <label for="numberInput">Number Input:</label><br>
+      <input type="number" id="numberInput" name="numberInput" min="1" max="100" step="1" placeholder="Enter a number"
+        required />
+      <br /><br />
+
+      <div>
+        <label for="date">DOB</label>
+        <input type="date" id="date" required autocomplete="bday">
+      </div><br>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" name="gender" id="male">
+        <label for="male">male</label><br>
+
+        <input type="radio" name="gender" id="female">
+        <label for="female">female</label><br>
+      </fieldset>
+      </div><br>
+
+      <div>
+        <input type="checkbox" id="checkbox" placeholder="checkbox">
+        <label for="checkbox">Yes,I am Sudent</label>
+      </div><br>
+
+      <label for="selectDropdown">Select Dropdown:</label>
+      <select id="selectDropdown" name="selectDropdown" required>
+        <option value="">Select a option</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+      </select>
+      <br /><br />
+
+      <label for="textarea">Textarea:</label>
+      <textarea id="textarea" name="textarea" rows="5" placeholder="Enter your message here"></textarea>
+      <br /><br />
+
+      <div><label for="file">Select your File</label><br>
+        <input type="file" name="file" id="file">
+      </div><br>
+
+      <div>
+        <label for="Rating">Rating(between 0 to 5)</label>
+        <input type="range" id="Rating" name="Rating" min="0.0" max="5">
+        <output name="result" for="Rating"></output>
+      </div><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <!-- Question 6 Answer -->
+  <section>
+    <h4 style="font-size: 1.8pc">Landing Page</h4>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="home">
+      <h1>Welcome to Our Company</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde magnam, delectus enim doloribus placeat saepe.
+      </p>
+      <a href="#contact">Get In Touch</a>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error inventore eos ratione, libero adipisci eius.
+      </p>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <article>
+        <h3>Service </h3>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, accusantium atque dolorum aut ducimus minus!
+        </p>
+      </article>
+      <article>
+        <h3>Service Two</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus sint cupiditate provident atque, dolores
+          accusamus harum mollitia consequuntur voluptates sit.
+        </p>
+      </article>
+      <article>
+        <h3>Service Three</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laudantium?
+        </p>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form action="/submit" method="post">
+        <div>
+          <fieldset>
+            <legend>Enter your Name</legend>
+            <label for="firstName">Enter your First Name</label><br>
+            <input type="text" id="firstName" required autocomplete="family-name" placeholder="firstName"><br><br>
+
+
+            <label for="lasttName">Enter your Last Name</label><br>
+            <input type="text" id="lasttName" required autocomplete="family-name" placeholder="lasttName"><br><br>
+          </fieldset>
+        </div><br>
+        <div>
+          <label for="email">Email</label><br>
+          <input type="email" id="email" placeholder="Enter your Email" required autocomplete="email">
+        </div><br>
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" required></textarea>
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>@DEEP, Company Address, City, Country</p>
+      <p>
+        Follow us on:
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </p>
+    </footer>
+  </section>
+</body>
+
+</html>

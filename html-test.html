@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <!-- Question 1 Answer -->
+    <dialog open>
+      <h2>dialog box</h2>
+    </dialog>
+
+    <!-- Question 2 Answer -->
+    <nav>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li>
+          <details>
+            <summary>Services</summary>
+            <ul>
+              <li><a href="">submenu1</a></li>
+              <li><a href="">submenu2</a></li>
+              <li><a href="">submenu3</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>About</summary>
+            <ul>
+              <li><a href="">submenu1</a></li>
+              <li><a href="">submenu2</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Question 3 Answer -->
+    <section style="border: 1px solid black; padding: 10px; margin-top: 50px">
+      <h2>Frequently Asked Question Answers (FAQ)</h2>
+      <details>
+        <summary>q1</summary>
+        <p>answer</p>
+      </details>
+      <details>
+        <summary>q2</summary>
+        <p>answer</p>
+      </details>
+      <details>
+        <summary>q3</summary>
+        <p>answer</p>
+      </details>
+    </section>
+    <!-- Question 4 Answer -->
+    <section>
+      <h1>Search Form</h1>
+      <form>
+        <label for="search-query">Search</label>
+        <input
+          type="search"
+          id="search-query"
+          list="suggestions"
+          placeholder="Type to search..."
+        />
+        <datalist id="suggestions">
+          <option value="item1"></option>
+          <option value="item2"></option>
+          <option value="item3"></option>
+          <option value="item4"></option>
+        </datalist>
+
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <!-- Question 5 Answer-->
+    <section>
+      <h1>HTML5 Form</h1>
+      <form>
+        <label for="textInput">Text Input:</label>
+        <input
+          type="text"
+          id="textInput"
+          name="textInput"
+          placeholder="Enter text here"
+          required
+        />
+        <br /><br />
+
+        <label for="emailInput">Email Input:</label>
+        <input
+          type="email"
+          id="emailInput"
+          name="emailInput"
+          placeholder="Enter your email"
+          required
+        />
+        <br /><br />
+
+        <label for="passwordInput">Password Input:</label>
+        <input
+          type="password"
+          id="passwordInput"
+          name="passwordInput"
+          placeholder="Enter your password"
+          required
+        />
+        <br /><br />
+
+        <label for="numberInput">Number Input:</label>
+        <input
+          type="number"
+          id="numberInput"
+          name="numberInput"
+          min="1"
+          max="100"
+          step="1"
+          placeholder="Enter a number"
+          required
+        />
+        <br /><br />
+
+        <label for="dateInput">Date Input:</label>
+        <input type="date" id="dateInput" name="dateInput" required />
+        <br /><br />
+
+        <label>Radio Buttons:</label>
+        <label
+          ><input type="radio" name="radioOption" value="option1" required />
+          Option 1</label
+        >
+        <label
+          ><input type="radio" name="radioOption" value="option2" required />
+          Option 2</label
+        >
+        <label
+          ><input type="radio" name="radioOption" value="option3" required />
+          Option 3</label
+        >
+        <br /><br />
+
+        <label>Checkboxes:</label>
+        <label
+          ><input type="checkbox" name="checkboxOption" value="optionA" />
+          Option A</label
+        >
+        <label
+          ><input type="checkbox" name="checkboxOption" value="optionB" />
+          Option B</label
+        >
+        <label
+          ><input type="checkbox" name="checkboxOption" value="optionC" />
+          Option C</label
+        >
+        <br /><br />
+
+        <label for="selectDropdown">Select Dropdown:</label>
+        <select id="selectDropdown" name="selectDropdown" required>
+          <option value="">Select an option</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+        <br /><br />
+
+        <label for="textarea">Textarea:</label>
+        <textarea
+          id="textarea"
+          name="textarea"
+          rows="4"
+          placeholder="Enter your message here"
+        ></textarea>
+        <br /><br />
+
+        <label for="fileInput">File Input:</label>
+        <input type="file" id="fileInput" name="fileInput" />
+        <br /><br />
+
+        <label for="rangeInput">Range Input:</label>
+        <input
+          type="range"
+          id="rangeInput"
+          name="rangeInput"
+          min="0"
+          max="100"
+          step="1"
+          value="50"
+        />
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <!-- Question 6 Answer -->
+    <section>
+      <h1 style="font-size: 2pc">Landing Page</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <section id="home">
+        <h1>Welcome to Our Company</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tempore dolore, in cumque quisquam sapiente quo commodi ipsa voluptas odit nemo dolorum laboriosam pariatur perspiciatis exercitationem molestiae atque dicta eos?
+        </p>
+        <a href="#contact">Get In Touch</a>
+      </section>
+
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aperiam voluptas commodi repellendus libero eaque!
+        </p>
+      </section>
+
+      <section id="services">
+        <h2>Our Services</h2>
+        <article>
+          <h3>Service One</h3>
+          <p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam corporis impedit, fugit et sequi dignissimos.
+          </p>
+        </article>
+        <article>
+          <h3>Service Two</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat aliquid eligendi vero error vitae doloremque.
+          </p>
+        </article>
+        <article>
+          <h3>Service Three</h3>
+          <p>
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit est perspiciatis vitae nobis recusandae velit!
+          </p>
+        </article>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="/submit" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <br /><br />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <br /><br />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <br /><br />
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>123 Company Address, City, Country</p>
+        <p>
+          Follow us on:
+          <a href="https://facebook.com" target="_blank">Facebook</a>                   
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </p>
+      </footer>
+    </section>
+  </body>
+</html>
