@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form oninput="result.value=age.value">
+        <div>
+                <label for="firstName">Enter your First Name</label><br>
+                <input type="text" id="firstName" required autocomplete="family-name" placeholder="firstName"><br><br>
+
+
+                <label for="lasttName">Enter your Last Name</label><br>
+                <input type="text" id="lasttName" required autocomplete="family-name" placeholder="lasttName"><br><br>
+        </div>
+        
+        <label for="gender">gender</label>
+        <br>
+            <input type="radio" name="gender" id="male">
+            <label for="male">male</label><br>
+
+            <input type="radio" name="gender" id="female">
+            <label for="female">female</label><br>
+        </div><br>
+
+        
+        <div>
+            <label for="tel">Phone Number</label><br>
+            <input type="tel" id="tel" placeholder="Enter your Number" required autocomplete="tel">
+        </div><br>
+       
+
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" placeholder="Enter your Email" required autocomplete="email">
+        </div><br>
+
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder="Enter your Password" required autocomplete="new-password">
+        </div><br>
+
+ 
+        <div>
+            <label for="date">DOB</label>
+            <input type="date" id="date" required autocomplete="bday">
+        </div><br>
+
+        <div>
+            <label for="age">age 0 to 100</label>
+            <input type="range" id="age" name="age" min="0" max="100">
+            <output name="result" for="age"></output>
+        </div><br>
+
+        <div><label for="file">Select your File</label><br>
+            <input type="file" name="file" id="file">
+        </div><br>
+
+    
+
+        <div>
+            <label for="homepage">Add your Homepage:</label>
+            <input type="url" id="homepage" name="homepage">
+        </div><br>
+
+        <div>
+            <label for="week">Select a Week:</label>
+            <input type="week" id="week">
+        </div><br>
+
+        <div>
+            <input type="reset" value="reset">
+            <input type="button" value="submit">
+        </div>
+
+    </form>
+</body>
+
+</html>
