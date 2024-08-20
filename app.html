@@ -8,14 +8,47 @@
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    /> -->
+
     <style>
       /* h1 {
             color: green;
             } */
+      /* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"); */
+
+      @font-face {
+        font-family: "abc";
+        src: url("./assets/fonts/roboto-regular-webfont.woff2") format("woff2"),
+          url("./assets/fonts/roboto-regular-webfont.woff") format("woff"),
+          url("./assets/fonts/Roboto-Regular.ttf");
+      }
 
       h1.heading {
-        color: green !important;
+        font-family: "abc";
+        color: #008000 !important;
+        font-size: 2em;
       }
+
+      /* mesurement units */
+
+      /* relative units */
+      /* percentage */
+      /* em */
+      /* rem */
+
+      /* fix unit */
+      /* px */
+      /* pc */
+      /* pt */
+      /* cm */
+      /* mm */
+      /*  */
     </style>
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -25,7 +58,16 @@
     <!-- internal css -->
     <!-- external css -->
 
-    <h1 class="heading" id="heading1" style="color: red">hello</h1>
+    <div style="height: 300px; width: 300px; background-color: yellow">
+      <h1 class="heading" id="heading1" style="color: red">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        voluptatum.
+      </h1>
+    </div>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, non.
+    </p>
 
     <h1>hello</h1>
   </body>
