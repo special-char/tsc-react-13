@@ -1,0 +1,20 @@
+
+
+
+
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+    width: 235px;
+    
+}
+
+.form-group img{
+    position: absolute;
+    top: 0px;
+    right:10px   ;
+}
+
+

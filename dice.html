@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0f172a;
+            font-family: Arial, sans-serif;
+        }
+
+        .quote-container {
+            background-color: #1e293b;
+            color: #d1d5db;
+            padding: 20px 40px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            height: 200px;
+        }
+
+        .quote-container::before {
+            content: "ADVICE #117";
+            
+            position: absolute;
+            font-size: 14px;
+            color: #16a34a;
+            margin-bottom: 10px;
+            top: 260px;
+        }
+
+        .quote {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+            position: absolute;
+            width: 260px;
+            top: 295px;
+        }
+
+        .image {
+            margin: 20px auto 0;
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 433px;
+        }
+    </style>
+    <title>Quote Card</title>
+</head>
+<body>
+    <div class="quote-container">
+        <div class="quote">“It is easy to sit up and take notice, what's difficult is getting up and taking action.”</div>
+        <img src="assets/pattern-divider-desktop.svg" alt="" style="width: 410px; height: 20px; position: absolute; top: 404px">
+        <img src="assets/apple-touch-icon.png" alt="Image" class="image">
+    </div>
+</body>
+</html>
