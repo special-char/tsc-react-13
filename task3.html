@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      body > * {
+        max-width: 1024px;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        background-color: yellow;
+      }
+      main > section {
+        flex: 1 1 300px;
+      }
+      section#question {
+        display: flex;
+        flex-direction: column;
+      }
+      section#question > h2 {
+        flex: 1;
+      }
+      section#options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      div.option {
+        display: flex;
+        border: 1px solid black;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      div.option > div:nth-child(1) {
+        background-color: coral;
+        width: 24px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Accesibility</h1>
+    </header>
+    <main>
+      <section id="question">
+        <p>Lorem ipsum dolor sit amet.</p>
+        <h2>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+          consequuntur illum, libero dolor architecto labore velit beatae id
+          aliquid fugit.
+        </h2>
+        <progress></progress>
+      </section>
+      <section id="options">
+        <div class="option">
+          <div>A</div>
+          <div>Lorem ipsum dolor sit.</div>
+        </div>
+        <div class="option">
+          <div>B</div>
+          <div>Lorem ipsum dolor sit.</div>
+        </div>
+        <div class="option">
+          <div>C</div>
+          <div>Lorem ipsum dolor sit.</div>
+        </div>
+        <div class="option">
+          <div>D</div>
+          <div>Lorem ipsum dolor sit.</div>
+        </div>
+        <button>Submit Answer</button>
+      </section>
+    </main>
+  </body>
+</html>
