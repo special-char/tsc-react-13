@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <style>
+      body {
+        display: grid;
+        grid-template:
+          "a a a" 84px
+          "b c e" 1fr
+          "b d e" 100px / 200px 1fr 200px;
+        gap: 1rem;
+        height: 100vh;
+      }
+
+      header {
+        grid-area: a;
+        background-color: coral;
+      }
+      header + aside {
+        grid-area: b;
+        background-color: gold;
+      }
+      main {
+        grid-area: c;
+        background-color: dodgerblue;
+      }
+      main + aside {
+        grid-area: e;
+        background-color: dodgerblue;
+      }
+      footer {
+        grid-area: d;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <header>header</header>
+    <aside>aside</aside>
+    <main>main</main>
+    <aside>aside</aside>
+    <footer>footer</footer>
+  </body>
+</html>
