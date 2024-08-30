@@ -1,0 +1,46 @@
+1- git switch -C feature
+2- git branch
+
+3-git commit -am "update"
+
+
+4-git log --oneline --all
+
+
+5-git switch -C master,
+     git log main..feature
+
+6-git diff master..feature
+
+7- git add .,
+     git commit -m"added”,
+      git commit -am"line 1 added”,
+    git switch master,
+   git merge feature
+
+8-git branch --merge,
+	git branch --no-merged
+
+
+9- git branch -d feature
+
+
+10-git switch -C feature,
+	git add .,
+	git commit -m"write blue”,
+	git switch master,
+	git add .,
+	git commit -m"write green”,
+	git merge feature,
+	 branch -D feature
+
+11-git switch -C bugfix,
+	git add .’
+	git commit -m"write orange”,
+	git switch master,
+	git add .,
+	git commit -m"write green”,
+	git log --oneline --all --graph,
+	git Rebase master,
+	git log --oneline --all --graph,
+	git merge--no-ff bugfix, `
