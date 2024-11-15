@@ -42,9 +42,15 @@
         "webpack-merge": "^6.0.1"
     },
     "dependencies": {
+        "@baethon/extract-jsonld": "^2.0.0",
         "autoprefixer": "^10.4.20",
+        "cheerio": "^1.0.0",
+        "jsonld-request": "^2.0.1",
+        "open-graph-scraper": "^6.8.2",
         "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "react-dom": "^18.3.1",
+        "superagent": "^10.1.1",
+        "web-auto-extractor": "^1.0.17"
     },
     "browserslist": [
         "last 10 version",
