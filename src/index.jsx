@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 import App from './components/App';
 import Counter from './components/Counter';
+import Calculator from './Calculator';
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -15,11 +16,22 @@ const root = createRoot(document.getElementById('app'));
 // instead of class use className
 // for style use object instead of string and use camel case for key
 
-root.render(
-    <>
-        <App variant="green" label="Username" />
-        <App variant="yellow" label="Password" />
-        <App variant="red" label="gender" />
-        <Counter />
-    </>,
-);
+// class Test extends Component {
+//     state = {
+//         name: 'virat',
+//     };
+
+//     render() {
+//         return (
+//             <>
+//                 <button onClick={() => this.setState({ name: 'Rohit' })}>
+//                     Change Name
+//                 </button>
+//                 <p style={{ color: 'red' }}>{this.state.name}</p>
+//                 <Counter count={1} name={this.state.name} />
+//             </>
+//         );
+//     }
+// }
+
+root.render(<Calculator />);

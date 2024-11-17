@@ -1,15 +1,48 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state = {
-        data: 0,
-        name: 'yagnesh',
-    };
+    // state = {
+    //     data: 0,
+    //     name: 'yagnesh',
+    // };
+
+    constructor(props) {
+        super(props);
+
+        console.log(document.getElementById('heading'));
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(document.getElementById('heading'));
+        return {
+            data: 0,
+            name: nextProps.name,
+        };
+    }
+
+    componentDidMount() {
+        console.log(document.getElementById('heading'));
+    }
 
     render() {
+        console.log(document.getElementById('heading'));
         return (
             <div>
-                <h1>{this.state.name}</h1>
+                <h1 id="heading">{this.state.name}</h1>
+
+                <button
+                    onClick={() => {
+                        this.setState((state, props) => {
+                            return {
+                                name: `Mr. ${state.name}`,
+                            };
+                        });
+                    }}
+                >
+                    Male
+                </button>
+                <button onClick={() => {}}>Female</button>
+
                 <button
                     onClick={() => {
                         // this.state.data += 1;
