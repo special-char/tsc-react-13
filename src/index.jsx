@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
-import App from './components/App';
-import Counter from './components/Counter';
 import Calculator from './Calculator';
+import Todo from './todo';
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -11,27 +10,67 @@ document.body.innerHTML = '<div id="app"></div>';
 // Render your React component instead
 const root = createRoot(document.getElementById('app'));
 
-// compoenent anme should start with upper case
-// return only single element
-// instead of class use className
-// for style use object instead of string and use camel case for key
+root.render(<Todo />);
+
+// // compoenent anme should start with upper case
+// // return only single element
+// // instead of class use className
+// // for style use object instead of string and use camel case for key
+
+// const newResult = 15;
+
+// // Calculator.getDerivedStateFromProps = (props, state) => {
+// //     return {
+// //         result: newResult,
+// //     };
+// // };
 
 // class Test extends Component {
 //     state = {
-//         name: 'virat',
+//         result: 5,
+//         name: 'rohit',
 //     };
 
+//     static getDerivedStateFromError(error) {
+//         return {
+//             error,
+//         };
+//     }
+
+//     componentDidCatch(error, errorInfo) {
+//         console.log(errorInfo);
+//     }
+
 //     render() {
+//         const { error } = this.state;
+//         if (error) return <h1>{error.message}</h1>;
+
 //         return (
 //             <>
-//                 <button onClick={() => this.setState({ name: 'Rohit' })}>
+//                 <button
+//                     onClick={() =>
+//                         this.setState((state, props) => {
+//                             return { result: state.result + 1 };
+//                         })
+//                     }
+//                 >
+//                     Change Result
+//                 </button>
+
+//                 <button onClick={() => this.setState({ name: 'virat' })}>
 //                     Change Name
 //                 </button>
-//                 <p style={{ color: 'red' }}>{this.state.name}</p>
-//                 <Counter count={1} name={this.state.name} />
+//                 <p style={{ color: 'red' }}>{this.state.result}</p>
+//                 {this.state.result <= 10 && (
+//                     <Calculator
+//                         result={this.state.result}
+//                         name={this.state.name}
+//                     />
+//                 )}
 //             </>
 //         );
 //     }
 // }
 
-root.render(<Calculator />);
+// // new Calculator({result: 5})
+// root.render(<Test />);

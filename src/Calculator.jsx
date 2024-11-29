@@ -1,9 +1,66 @@
 import React, { Component, createRef } from 'react';
+import Child1 from './child1';
+import Child2 from './child2';
+
+// Mounting
+// -> Constuctor
+// -> GetDerivedStateFromProps
+// -> render
+// -> componentDidMount
+
+// Updating
+// -> GetDerivedStateFromProps
+
+// unMounting
+
+// Error
 
 export default class Calculator extends Component {
-    state = {
-        result: 0,
+    // define state based on props
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     result: props.result,
+        // };
+        this.state = {
+            todoTitle: '',
+        };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        return {
+            result: props.result,
+            name: `Mr. ${props.name}`,
+        };
+    }
+
+    mouseMove = () => {
+        console.log('Mouse Moved');
     };
+
+    async componentDidMount() {
+        try {
+            // document.addEventListener('mousemove', () => {
+            //     console.log('hello mouse move');
+            // });
+            const res = await fetch(
+                'https://jsonplaceholder.typicode.com/todos/1',
+            );
+            const json = await res.json();
+            this.setState({ todoTitle: json.title });
+
+            // document.addEventListener('mousemove', this.mouseMove);
+
+            // this.interval = setInterval(() => {
+            //     console.log('hello world');
+            // }, 1000);
+        } catch (error) {}
+    }
+
+    componentWillUnmount() {
+        // document.removeEventListener('mousemove', this.mouseMove);
+        // clearInterval(this.interval);
+    }
 
     number1 = createRef();
     number2 = createRef();
@@ -40,13 +97,17 @@ export default class Calculator extends Component {
     };
 
     render() {
-        const { result } = this.state;
+        const { result, todoTitle, name, error } = this.state;
 
         console.log('render');
 
         return (
             <>
                 <form onSubmit={this.getResult}>
+                    <p>{todoTitle}</p>
+                    <p>{name}</p>
+                    <Child1 result={result} />
+                    <Child2 result={result} />
                     <div>
                         <label htmlFor="number1">Number 1</label>
                         <input type="text" id="number1" ref={this.number1} />
