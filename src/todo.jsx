@@ -5,9 +5,11 @@ import Button from './components/button';
 export default class Todo extends Component {
     state = {
         todoList: [],
+        id: null,
     };
 
     todoInputRef = createRef();
+    dialogRef = createRef();
 
     createTodo = (event) => {
         event.preventDefault();
@@ -18,13 +20,49 @@ export default class Todo extends Component {
             ({ todoList }) => {
                 const todoText = todoTextInput.value;
                 return {
-                    todoList: [...todoList, todoText],
+                    todoList: [
+                        ...todoList,
+                        { id: new Date().valueOf(), todoText, isDone: false },
+                    ],
                 };
             },
             () => {
                 todoTextInput.value = '';
             },
         );
+    };
+
+    deleteTodo = () => {
+        this.setState(
+            ({ todoList, id }) => {
+                const index = todoList.findIndex((x) => x.id === id);
+
+                return {
+                    todoList: [
+                        ...todoList.slice(0, index),
+                        ...todoList.slice(index + 1),
+                    ],
+                    id: null,
+                };
+            },
+            () => {
+                this.dialogRef.current.close();
+            },
+        );
+    };
+
+    updateTodo = (id) => {
+        this.setState(({ todoList }) => {
+            const index = todoList.findIndex((x) => x.id === id);
+
+            return {
+                todoList: [
+                    ...todoList.slice(0, index),
+                    { ...todoList[index], isDone: !todoList[index].isDone },
+                    ...todoList.slice(index + 1),
+                ],
+            };
+        });
     };
 
     render() {
@@ -52,16 +90,69 @@ export default class Todo extends Component {
                     <Button className="rounded-l-none">Create Todo</Button>
                 </form>
                 <ul className="w-full">
-                    {todoList.map((item, i) => {
+                    {todoList.map((item) => {
                         return (
-                            <li key={i} className="flex items-center gap-4 p-2">
-                                <input type="checkbox" name="" id="" />
-                                <p className="flex-1">{item}</p>
-                                <Button>Delete</Button>
+                            <li
+                                key={item.id}
+                                className="flex items-center gap-4 p-2"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={item.isDone}
+                                    onChange={() => this.updateTodo(item.id)}
+                                />
+                                <p
+                                    className="flex-1"
+                                    style={{
+                                        textDecoration: item.isDone
+                                            ? 'line-through'
+                                            : 'none',
+                                    }}
+                                >
+                                    {item.todoText}
+                                </p>
+                                <Button
+                                    onClick={() => {
+                                        this.setState({ id: item.id });
+                                        this.dialogRef.current.showModal();
+                                    }}
+                                >
+                                    Delete
+                                </Button>
                             </li>
                         );
                     })}
                 </ul>
+                <dialog
+                    ref={this.dialogRef}
+                    className="p-4 rounded-md shadow-md backdrop:bg-black/30"
+                >
+                    <div className="flex flex-col gap-4">
+                        <header>are you sure you want to delete</header>
+                        <main>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Vitae, omnis?
+                        </main>
+                        <footer className="self-end gap-4 flex">
+                            <Button
+                                onClick={() => {
+                                    this.setState({ id: null }, () => {
+                                        this.dialogRef.current.close();
+                                    });
+                                }}
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    this.deleteTodo();
+                                }}
+                            >
+                                Submit
+                            </Button>
+                        </footer>
+                    </div>
+                </dialog>
             </main>
         );
     }
