@@ -6,71 +6,116 @@ export default class Todo extends Component {
     state = {
         todoList: [],
         id: null,
+        filterType: 'all',
     };
 
     todoInputRef = createRef();
     dialogRef = createRef();
 
-    createTodo = (event) => {
-        event.preventDefault();
-
-        const todoTextInput = this.todoInputRef.current;
-
-        this.setState(
-            ({ todoList }) => {
-                const todoText = todoTextInput.value;
-                return {
-                    todoList: [
-                        ...todoList,
-                        { id: new Date().valueOf(), todoText, isDone: false },
-                    ],
-                };
-            },
-            () => {
-                todoTextInput.value = '';
-            },
-        );
+    loadTodoList = async () => {
+        try {
+            const res = await fetch('http://localhost:3000/todo-list');
+            const json = await res.json();
+            this.setState({ todoList: json });
+        } catch (error) {}
     };
 
-    deleteTodo = () => {
-        this.setState(
-            ({ todoList, id }) => {
-                const index = todoList.findIndex((x) => x.id === id);
+    createTodo = async (event) => {
+        try {
+            event.preventDefault();
 
-                return {
-                    todoList: [
-                        ...todoList.slice(0, index),
-                        ...todoList.slice(index + 1),
-                    ],
-                    id: null,
-                };
-            },
-            () => {
-                this.dialogRef.current.close();
-            },
-        );
+            const todoTextInput = this.todoInputRef.current;
+
+            const res = await fetch('http://localhost:3000/todo-list', {
+                method: 'POST',
+                body: JSON.stringify({
+                    todoText: todoTextInput.value,
+                    isDone: false,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const json = await res.json();
+
+            this.setState(
+                ({ todoList }) => {
+                    const todoText = todoTextInput.value;
+                    return {
+                        todoList: [...todoList, json],
+                    };
+                },
+                () => {
+                    todoTextInput.value = '';
+                },
+            );
+        } catch (error) {}
     };
 
-    updateTodo = (id) => {
-        this.setState(({ todoList }) => {
-            const index = todoList.findIndex((x) => x.id === id);
+    deleteTodo = async () => {
+        try {
+            await fetch(`http://localhost:3000/todo-list/${this.state.id}`, {
+                method: 'DELETE',
+            });
 
-            return {
+            this.setState(
+                ({ todoList, id }) => {
+                    const index = todoList.findIndex((x) => x.id === id);
+                    return {
+                        todoList: [
+                            ...todoList.slice(0, index),
+                            ...todoList.slice(index + 1),
+                        ],
+                        id: null,
+                    };
+                },
+                () => {
+                    this.dialogRef.current.close();
+                },
+            );
+        } catch (error) {}
+    };
+
+    updateTodo = async (id) => {
+        try {
+            const index = this.state.todoList.findIndex((x) => x.id === id);
+            const res = await fetch(`http://localhost:3000/todo-list/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    ...this.state.todoList[index],
+                    isDone: !this.state.todoList[index].isDone,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const json = await res.json();
+
+            this.setState({
                 todoList: [
-                    ...todoList.slice(0, index),
-                    { ...todoList[index], isDone: !todoList[index].isDone },
-                    ...todoList.slice(index + 1),
+                    ...this.state.todoList.slice(0, index),
+                    json,
+                    ...this.state.todoList.slice(index + 1),
                 ],
-            };
-        });
+            });
+        } catch (error) {}
     };
+
+    changeFilterType = (filterType) => {
+        this.setState({ filterType });
+    };
+
+    componentDidMount() {
+        this.loadTodoList();
+    }
 
     render() {
         console.log('log render');
 
-        const { todoList } = this.state;
+        const { todoList, filterType } = this.state;
         return (
-            <main className="flex flex-col items-center">
+            <main className="flex flex-col items-center h-screen">
                 <h1 className="text-4xl font-semibold my-4">
                     Todo Application
                 </h1>
@@ -89,40 +134,73 @@ export default class Todo extends Component {
                     />
                     <Button className="rounded-l-none">Create Todo</Button>
                 </form>
-                <ul className="w-full">
-                    {todoList.map((item) => {
-                        return (
-                            <li
-                                key={item.id}
-                                className="flex items-center gap-4 p-2"
-                            >
-                                <input
-                                    type="checkbox"
-                                    checked={item.isDone}
-                                    onChange={() => this.updateTodo(item.id)}
-                                />
-                                <p
-                                    className="flex-1"
-                                    style={{
-                                        textDecoration: item.isDone
-                                            ? 'line-through'
-                                            : 'none',
-                                    }}
+                <ul className="w-full flex-1 scroll-auto">
+                    {todoList
+                        .filter((item) => {
+                            switch (filterType) {
+                                case 'completed':
+                                    return item.isDone === true;
+                                case 'pending':
+                                    return item.isDone === false;
+                                default:
+                                    return true;
+                            }
+                        })
+                        .map((item) => {
+                            return (
+                                <li
+                                    key={item.id}
+                                    className="flex items-center gap-4 p-2"
                                 >
-                                    {item.todoText}
-                                </p>
-                                <Button
-                                    onClick={() => {
-                                        this.setState({ id: item.id });
-                                        this.dialogRef.current.showModal();
-                                    }}
-                                >
-                                    Delete
-                                </Button>
-                            </li>
-                        );
-                    })}
+                                    <input
+                                        type="checkbox"
+                                        checked={item.isDone}
+                                        onChange={() =>
+                                            this.updateTodo(item.id)
+                                        }
+                                    />
+                                    <p
+                                        className="flex-1"
+                                        style={{
+                                            textDecoration: item.isDone
+                                                ? 'line-through'
+                                                : 'none',
+                                        }}
+                                    >
+                                        {item.todoText}
+                                    </p>
+                                    <Button
+                                        onClick={() => {
+                                            this.setState({ id: item.id });
+                                            this.dialogRef.current.showModal();
+                                        }}
+                                    >
+                                        Delete
+                                    </Button>
+                                </li>
+                            );
+                        })}
                 </ul>
+                <div className="flex w-full">
+                    <Button
+                        className="flex-1 rounded-none"
+                        onClick={() => this.changeFilterType('all')}
+                    >
+                        All
+                    </Button>
+                    <Button
+                        className="flex-1 rounded-none"
+                        onClick={() => this.changeFilterType('pending')}
+                    >
+                        Pending
+                    </Button>
+                    <Button
+                        className="flex-1 rounded-none"
+                        onClick={() => this.changeFilterType('completed')}
+                    >
+                        Completed
+                    </Button>
+                </div>
                 <dialog
                     ref={this.dialogRef}
                     className="p-4 rounded-md shadow-md backdrop:bg-black/30"
