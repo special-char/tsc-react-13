@@ -12,9 +12,13 @@ export default class Todo extends Component {
     todoInputRef = createRef();
     dialogRef = createRef();
 
-    loadTodoList = async () => {
+    loadTodoList = async (filterType) => {
         try {
-            const res = await fetch('http://localhost:3000/todo-list');
+            let url = 'http://localhost:3000/todo-list';
+            if (filterType !== 'all') {
+                url += `?isDone=${filterType === 'completed'}`;
+            }
+            const res = await fetch(url);
             const json = await res.json();
             this.setState({ todoList: json });
         } catch (error) {}
@@ -107,7 +111,7 @@ export default class Todo extends Component {
     };
 
     componentDidMount() {
-        this.loadTodoList();
+        this.loadTodoList('all');
     }
 
     render() {
@@ -135,68 +139,55 @@ export default class Todo extends Component {
                     <Button className="rounded-l-none">Create Todo</Button>
                 </form>
                 <ul className="w-full flex-1 scroll-auto">
-                    {todoList
-                        .filter((item) => {
-                            switch (filterType) {
-                                case 'completed':
-                                    return item.isDone === true;
-                                case 'pending':
-                                    return item.isDone === false;
-                                default:
-                                    return true;
-                            }
-                        })
-                        .map((item) => {
-                            return (
-                                <li
-                                    key={item.id}
-                                    className="flex items-center gap-4 p-2"
+                    {todoList.map((item) => {
+                        return (
+                            <li
+                                key={item.id}
+                                className="flex items-center gap-4 p-2"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={item.isDone}
+                                    onChange={() => this.updateTodo(item.id)}
+                                />
+                                <p
+                                    className="flex-1"
+                                    style={{
+                                        textDecoration: item.isDone
+                                            ? 'line-through'
+                                            : 'none',
+                                    }}
                                 >
-                                    <input
-                                        type="checkbox"
-                                        checked={item.isDone}
-                                        onChange={() =>
-                                            this.updateTodo(item.id)
-                                        }
-                                    />
-                                    <p
-                                        className="flex-1"
-                                        style={{
-                                            textDecoration: item.isDone
-                                                ? 'line-through'
-                                                : 'none',
-                                        }}
-                                    >
-                                        {item.todoText}
-                                    </p>
-                                    <Button
-                                        onClick={() => {
-                                            this.setState({ id: item.id });
-                                            this.dialogRef.current.showModal();
-                                        }}
-                                    >
-                                        Delete
-                                    </Button>
-                                </li>
-                            );
-                        })}
+                                    {item.todoText}
+                                </p>
+                                <Button
+                                    onClick={() => {
+                                        this.setState({ id: item.id });
+                                        this.dialogRef.current.showModal();
+                                    }}
+                                >
+                                    Delete
+                                </Button>
+                            </li>
+                        );
+                    })}
                 </ul>
                 <div className="flex w-full">
                     <Button
                         className="flex-1 rounded-none"
-                        onClick={() => this.changeFilterType('all')}
+                        onClick={() => this.loadTodoList('all')}
                     >
                         All
                     </Button>
                     <Button
                         className="flex-1 rounded-none"
-                        onClick={() => this.changeFilterType('pending')}
+                        onClick={() => this.loadTodoList('pending')}
                     >
                         Pending
                     </Button>
                     <Button
                         className="flex-1 rounded-none"
-                        onClick={() => this.changeFilterType('completed')}
+                        onClick={() => this.loadTodoList('completed')}
                     >
                         Completed
                     </Button>
