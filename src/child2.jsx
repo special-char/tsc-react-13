@@ -10,4 +10,4 @@ const Child2 = ({ result }) => {
     );
 };
 
-export default memo(Child2);
+export default Child2;

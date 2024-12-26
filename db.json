@@ -1,21 +1,6 @@
 {
   "todo-list": [
     {
-      "id": "dbbd",
-      "todoText": "asdf",
-      "isDone": false
-    },
-    {
-      "id": "4b81",
-      "todoText": "asdfads",
-      "isDone": true
-    },
-    {
-      "id": "deb5",
-      "todoText": "fadsfa",
-      "isDone": true
-    },
-    {
       "id": "fcad",
       "todoText": "dfasdfasdf",
       "isDone": true
@@ -23,12 +8,59 @@
     {
       "id": "1f16",
       "todoText": "asfasdf",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "e441",
       "todoText": "asdfasdf",
+      "isDone": true
+    },
+    {
+      "id": "58e0",
+      "todoText": "asdfdsaf",
       "isDone": false
+    },
+    {
+      "id": "9143",
+      "todoText": "asdfas",
+      "isDone": false
+    },
+    {
+      "id": "bc82",
+      "todoText": "fasdfasf",
+      "isDone": false
+    },
+    {
+      "id": "077d",
+      "todoText": "asfadsfdasf",
+      "isDone": false
+    },
+    {
+      "id": "ce45",
+      "todoText": "sdfsdgfdg",
+      "isDone": false
+    },
+    {
+      "id": "67ba",
+      "todoText": "hello world",
+      "isDone": false
+    }
+  ],
+  "wether": [
+    {
+      "city": "ahmedabad",
+      "temp": "22deg",
+      "id": "60b2"
+    },
+    {
+      "city": "surat",
+      "temp": "24deg",
+      "id": "4522"
+    },
+    {
+      "city": "vadodara",
+      "temp": "21deg",
+      "id": "668c"
     }
   ]
 }

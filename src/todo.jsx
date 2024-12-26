@@ -1,16 +1,20 @@
 import React, { Component, createRef } from 'react';
 import Input from './components/input';
 import Button from './components/button';
+import TodoForm from './todoForm';
+import TodoList from './todoList';
+import TodoFooter from './todoFooter';
+import DeleteDialog from './deleteDialog';
 
 export default class Todo extends Component {
+    todoInputRef = createRef();
+    dialogRef = createRef();
+
     state = {
         todoList: [],
         id: null,
         filterType: 'all',
     };
-
-    todoInputRef = createRef();
-    dialogRef = createRef();
 
     loadTodoList = async (filterType) => {
         try {
@@ -55,6 +59,17 @@ export default class Todo extends Component {
                 },
             );
         } catch (error) {}
+    };
+
+    deleteTodoModal = (id) => {
+        this.setState({ id });
+        this.dialogRef.current.showModal();
+    };
+
+    closeDialog = () => {
+        this.setState({ id: null }, () => {
+            this.dialogRef.current.close();
+        });
     };
 
     deleteTodo = async () => {
@@ -115,113 +130,29 @@ export default class Todo extends Component {
     }
 
     render() {
-        console.log('log render');
+        const { todoList } = this.state;
+        console.log('Todo render');
 
-        const { todoList, filterType } = this.state;
         return (
             <main className="flex flex-col items-center h-screen">
                 <h1 className="text-4xl font-semibold my-4">
                     Todo Application
                 </h1>
-                <form
-                    onSubmit={this.createTodo}
-                    className="flex w-full max-w-screen-sm px-4"
-                >
-                    <Input
-                        id="todo-text"
-                        label="Todo Text"
-                        placeholder="Enter your todo here..."
-                        variant="withoutLabel"
-                        className="rounded-r-none"
-                        ref={this.todoInputRef}
-                        required
-                    />
-                    <Button className="rounded-l-none">Create Todo</Button>
-                </form>
-                <ul className="w-full flex-1 scroll-auto">
-                    {todoList.map((item) => {
-                        return (
-                            <li
-                                key={item.id}
-                                className="flex items-center gap-4 p-2"
-                            >
-                                <input
-                                    type="checkbox"
-                                    checked={item.isDone}
-                                    onChange={() => this.updateTodo(item.id)}
-                                />
-                                <p
-                                    className="flex-1"
-                                    style={{
-                                        textDecoration: item.isDone
-                                            ? 'line-through'
-                                            : 'none',
-                                    }}
-                                >
-                                    {item.todoText}
-                                </p>
-                                <Button
-                                    onClick={() => {
-                                        this.setState({ id: item.id });
-                                        this.dialogRef.current.showModal();
-                                    }}
-                                >
-                                    Delete
-                                </Button>
-                            </li>
-                        );
-                    })}
-                </ul>
-                <div className="flex w-full">
-                    <Button
-                        className="flex-1 rounded-none"
-                        onClick={() => this.loadTodoList('all')}
-                    >
-                        All
-                    </Button>
-                    <Button
-                        className="flex-1 rounded-none"
-                        onClick={() => this.loadTodoList('pending')}
-                    >
-                        Pending
-                    </Button>
-                    <Button
-                        className="flex-1 rounded-none"
-                        onClick={() => this.loadTodoList('completed')}
-                    >
-                        Completed
-                    </Button>
-                </div>
-                <dialog
+                <TodoForm
+                    createTodo={this.createTodo}
+                    ref={this.todoInputRef}
+                />
+                <TodoList
+                    todoList={todoList}
+                    updateTodo={this.updateTodo}
+                    deleteTodoModal={this.deleteTodoModal}
+                />
+                <TodoFooter loadTodoList={this.loadTodoList} />
+                <DeleteDialog
+                    closeDialog={this.closeDialog}
+                    deleteTodo={this.deleteTodo}
                     ref={this.dialogRef}
-                    className="p-4 rounded-md shadow-md backdrop:bg-black/30"
-                >
-                    <div className="flex flex-col gap-4">
-                        <header>are you sure you want to delete</header>
-                        <main>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Vitae, omnis?
-                        </main>
-                        <footer className="self-end gap-4 flex">
-                            <Button
-                                onClick={() => {
-                                    this.setState({ id: null }, () => {
-                                        this.dialogRef.current.close();
-                                    });
-                                }}
-                            >
-                                Cancel
-                            </Button>
-                            <Button
-                                onClick={() => {
-                                    this.deleteTodo();
-                                }}
-                            >
-                                Submit
-                            </Button>
-                        </footer>
-                    </div>
-                </dialog>
+                />
             </main>
         );
     }
