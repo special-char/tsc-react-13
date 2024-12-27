@@ -1,23 +1,21 @@
 import React, { memo } from 'react';
 import Button from './components/button';
 import TodoListItem from './todoListItem';
+import { TodoConsumer } from './context/todoContext';
 
-const TodoList = ({ todoList, updateTodo, deleteTodoModal }) => {
+const TodoList = () => {
     console.log('TodoList render');
 
     return (
-        <ul className="w-full flex-1 scroll-auto">
-            {todoList.map((item) => {
-                return (
-                    <TodoListItem
-                        key={item.id}
-                        item={item}
-                        updateTodo={updateTodo}
-                        deleteTodoModal={deleteTodoModal}
-                    />
-                );
-            })}
-        </ul>
+        <TodoConsumer>
+            {({ todoList }) => (
+                <ul className="w-full flex-1 scroll-auto">
+                    {todoList.map((item) => {
+                        return <TodoListItem key={item.id} item={item} />;
+                    })}
+                </ul>
+            )}
+        </TodoConsumer>
     );
 };
 

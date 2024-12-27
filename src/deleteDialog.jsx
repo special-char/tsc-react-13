@@ -1,29 +1,41 @@
-import React, { forwardRef, memo } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import Button from './components/button';
 
-const DeleteDialog = forwardRef(({ closeDialog, deleteTodo }, ref) => {
-    console.log('DeleteDialog ref');
+class DeleteDialog extends PureComponent {
+    dialogRef = createRef();
 
-    return (
-        <dialog
-            ref={ref}
-            className="p-4 rounded-md shadow-md backdrop:bg-black/30"
-        >
-            <div className="flex flex-col gap-4">
-                <header>are you sure you want to delete</header>
-                <main>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Vitae, omnis?
-                </main>
-                <footer className="self-end gap-4 flex">
-                    <Button onClick={() => closeDialog()}>Cancel</Button>
-                    <Button onClick={() => deleteTodo()}>Submit</Button>
-                </footer>
-            </div>
-        </dialog>
-    );
-});
+    componentDidUpdate() {
+        if (this.props.open) {
+            this.dialogRef.current.showModal();
+        } else {
+            this.dialogRef.current.close();
+        }
+    }
 
-DeleteDialog.displayName = 'DeleteDialog';
+    render() {
+        const { onConfirm } = this.props;
+
+        return (
+            <dialog
+                ref={this.dialogRef}
+                className="p-4 rounded-md shadow-md backdrop:bg-black/30"
+            >
+                <div className="flex flex-col gap-4">
+                    <header>are you sure you want to delete</header>
+                    <main>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Vitae, omnis?
+                    </main>
+                    <footer className="self-end gap-4 flex">
+                        <Button onClick={() => this.dialogRef.current.close()}>
+                            Cancel
+                        </Button>
+                        <Button onClick={() => onConfirm()}>Submit</Button>
+                    </footer>
+                </div>
+            </dialog>
+        );
+    }
+}
 
 export default DeleteDialog;

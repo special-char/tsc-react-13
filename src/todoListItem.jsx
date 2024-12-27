@@ -1,25 +1,31 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from './components/button';
+import { TodoConsumer } from './context/todoContext';
 
-const TodoListItem = ({ updateTodo, deleteTodoModal, item }) => {
-    console.log('todolist item render');
+const TodoListItem = ({ item }) => {
     return (
-        <li className="flex items-center gap-4 p-2">
-            <input
-                type="checkbox"
-                checked={item.isDone}
-                onChange={() => updateTodo(item.id)}
-            />
-            <p
-                className="flex-1"
-                style={{
-                    textDecoration: item.isDone ? 'line-through' : 'none',
-                }}
-            >
-                {item.todoText}
-            </p>
-            <Button onClick={() => deleteTodoModal(item.id)}>Delete</Button>
-        </li>
+        <TodoConsumer>
+            {({ updateTodo, deleteTodo }) => (
+                <li className="flex items-center gap-4 p-2">
+                    <input
+                        type="checkbox"
+                        checked={item.isDone}
+                        onChange={() => updateTodo(item.id)}
+                    />
+                    <p
+                        className="flex-1"
+                        style={{
+                            textDecoration: item.isDone
+                                ? 'line-through'
+                                : 'none',
+                        }}
+                    >
+                        {item.todoText}
+                    </p>
+                    <Button onClick={() => deleteTodo(item.id)}>Delete</Button>
+                </li>
+            )}
+        </TodoConsumer>
     );
 };
 

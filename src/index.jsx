@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
-import Calculator from './Calculator';
 import Todo from './todo';
+import { LocaleProvider } from './context/localeContext';
+import { TodoProvider } from './context/todoContext';
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -10,7 +11,13 @@ document.body.innerHTML = '<div id="app"></div>';
 // Render your React component instead
 const root = createRoot(document.getElementById('app'));
 
-root.render(<Todo />);
+root.render(
+    <LocaleProvider>
+        <TodoProvider>
+            <Todo />
+        </TodoProvider>
+    </LocaleProvider>,
+);
 
 // // compoenent anme should start with upper case
 // // return only single element

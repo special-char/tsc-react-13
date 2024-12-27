@@ -1,24 +1,9 @@
 {
   "todo-list": [
     {
-      "id": "fcad",
-      "todoText": "dfasdfasdf",
-      "isDone": true
-    },
-    {
-      "id": "1f16",
-      "todoText": "asfasdf",
-      "isDone": true
-    },
-    {
       "id": "e441",
       "todoText": "asdfasdf",
       "isDone": true
-    },
-    {
-      "id": "58e0",
-      "todoText": "asdfdsaf",
-      "isDone": false
     },
     {
       "id": "9143",
@@ -41,8 +26,13 @@
       "isDone": false
     },
     {
-      "id": "67ba",
-      "todoText": "hello world",
+      "id": "00eb",
+      "todoText": "asfadsf",
+      "isDone": false
+    },
+    {
+      "id": "8c45",
+      "todoText": "asdfadsfs",
       "isDone": false
     }
   ],
