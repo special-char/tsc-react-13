@@ -1,4 +1,5 @@
 import React, { createContext, createRef, PureComponent } from 'react';
+import DeleteDialog from '../deleteDialog';
 
 export const { Provider, Consumer: TodoConsumer } = createContext();
 
@@ -8,6 +9,8 @@ export class TodoProvider extends PureComponent {
     state = {
         todoList: [],
         filterType: 'all',
+        showDialog: false,
+        deleteId: null,
     };
 
     loadTodo = async (filterType) => {
@@ -85,19 +88,35 @@ export class TodoProvider extends PureComponent {
             await fetch(`http://localhost:3000/todo-list/${id}`, {
                 method: 'DELETE',
             });
-
-            this.setState(({ todoList, id }) => {
+            this.setState(({ todoList }) => {
                 const index = todoList.findIndex((x) => x.id === id);
+                console.log('index', index);
+                console.log('todoList', todoList);
                 return {
                     todoList: [
                         ...todoList.slice(0, index),
                         ...todoList.slice(index + 1),
                     ],
-                    id: null,
+                    deleteId: null,
                     showDialog: false,
                 };
             });
         } catch (error) {}
+    };
+
+    confirmDeleteTodo = (id) => {
+        this.setState((state, props) => {
+            return {
+                deleteId: id,
+                showDialog: true,
+            };
+        });
+    };
+
+    toggleDialog = () => {
+        this.setState(({ showDialog }) => {
+            return { showDialog: !showDialog };
+        });
     };
 
     componentDidMount() {
@@ -106,7 +125,7 @@ export class TodoProvider extends PureComponent {
 
     render() {
         const { children } = this.props;
-        const { todoList } = this.state;
+        const { todoList, showDialog, deleteId } = this.state;
         return (
             <Provider
                 value={{
@@ -115,10 +134,15 @@ export class TodoProvider extends PureComponent {
                     loadTodo: this.loadTodo,
                     addTodo: this.addTodo,
                     updateTodo: this.updateTodo,
-                    deleteTodo: this.deleteTodo,
+                    deleteTodo: this.confirmDeleteTodo,
                 }}
             >
                 {children}
+                <DeleteDialog
+                    open={showDialog}
+                    onConfirm={() => this.deleteTodo(deleteId)}
+                    onClose={() => this.toggleDialog()}
+                />
             </Provider>
         );
     }

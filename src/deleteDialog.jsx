@@ -13,7 +13,7 @@ class DeleteDialog extends PureComponent {
     }
 
     render() {
-        const { onConfirm } = this.props;
+        const { onConfirm, onClose } = this.props;
 
         return (
             <dialog
@@ -27,7 +27,12 @@ class DeleteDialog extends PureComponent {
                         elit. Vitae, omnis?
                     </main>
                     <footer className="self-end gap-4 flex">
-                        <Button onClick={() => this.dialogRef.current.close()}>
+                        <Button
+                            onClick={() => {
+                                this.dialogRef.current.close();
+                                onClose();
+                            }}
+                        >
                             Cancel
                         </Button>
                         <Button onClick={() => onConfirm()}>Submit</Button>
