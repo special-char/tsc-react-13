@@ -1,96 +1,105 @@
 {
-  "todo-list": [
-    {
-      "id": "e441",
-      "todoText": "asdfasdf",
-      "isDone": true
-    },
-    {
-      "id": "afe9",
-      "todoText": "asfasd",
-      "isDone": false
-    },
-    {
-      "id": "7681",
-      "todoText": "asdf",
-      "isDone": false
-    },
-    {
-      "id": "8bc8",
-      "todoText": "asdf",
-      "isDone": false
-    },
-    {
-      "id": "80f5",
-      "todoText": "asdf",
-      "isDone": false
-    },
-    {
-      "id": "82a2",
-      "todoText": "asdffadsd",
-      "isDone": false
-    },
-    {
-      "id": "4895",
-      "todoText": "asdfas",
-      "isDone": false
-    },
-    {
-      "id": "4e66",
-      "todoText": "asdfasdfas",
-      "isDone": false
-    },
-    {
-      "id": "3bef",
-      "todoText": "dasdfasd",
-      "isDone": false
-    },
-    {
-      "id": "1021",
-      "todoText": "asdfadf",
-      "isDone": false
-    },
-    {
-      "id": "1f39",
-      "todoText": "afasdfasdf",
-      "isDone": false
-    },
-    {
-      "id": "0275",
-      "todoText": "asdfas",
-      "isDone": false
-    },
-    {
-      "id": "b109",
-      "todoText": "asdf",
-      "isDone": false
-    },
-    {
-      "id": "2ad2",
-      "todoText": "asdfads",
-      "isDone": false
-    },
-    {
-      "id": "dc1c",
-      "todoText": "asdfads",
-      "isDone": false
-    }
-  ],
-  "wether": [
-    {
-      "city": "ahmedabad",
-      "temp": "22deg",
-      "id": "60b2"
-    },
-    {
-      "city": "surat",
-      "temp": "24deg",
-      "id": "4522"
-    },
-    {
-      "city": "vadodara",
-      "temp": "21deg",
-      "id": "668c"
-    }
-  ]
+    "todo-list": [
+        {
+            "id": "e441",
+            "todoText": "asdfasdf",
+            "isDone": true
+        },
+        {
+            "id": "afe9",
+            "todoText": "asfasd",
+            "isDone": false
+        },
+        {
+            "id": "7681",
+            "todoText": "asdf",
+            "isDone": false
+        },
+        {
+            "id": "8bc8",
+            "todoText": "asdf",
+            "isDone": false
+        },
+        {
+            "id": "80f5",
+            "todoText": "asdf",
+            "isDone": false
+        },
+        {
+            "id": "82a2",
+            "todoText": "asdffadsd",
+            "isDone": false
+        },
+        {
+            "id": "4895",
+            "todoText": "asdfas",
+            "isDone": false
+        },
+        {
+            "id": "4e66",
+            "todoText": "asdfasdfas",
+            "isDone": false
+        },
+        {
+            "id": "3bef",
+            "todoText": "dasdfasd",
+            "isDone": false
+        },
+        {
+            "id": "1021",
+            "todoText": "asdfadf",
+            "isDone": false
+        },
+        {
+            "id": "1f39",
+            "todoText": "afasdfasdf",
+            "isDone": false
+        },
+        {
+            "id": "0275",
+            "todoText": "asdfas",
+            "isDone": false
+        },
+        {
+            "id": "b109",
+            "todoText": "asdf",
+            "isDone": false
+        },
+        {
+            "id": "2ad2",
+            "todoText": "asdfads",
+            "isDone": false
+        },
+        {
+            "id": "dc1c",
+            "todoText": "asdfads",
+            "isDone": false
+        }
+    ],
+    "wether": [
+        {
+            "city": "ahmedabad",
+            "temp": "22deg",
+            "id": "60b2"
+        },
+        {
+            "city": "surat",
+            "temp": "24deg",
+            "id": "4522"
+        },
+        {
+            "city": "vadodara",
+            "temp": "21deg",
+            "id": "668c"
+        }
+    ],
+    "job-list": [
+        {
+            "id": "",
+            "role": "",
+            "location": "",
+            "isFullTime": false,
+            "created_at": ""
+        }
+    ]
 }

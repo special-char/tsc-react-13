@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
-import Todo from './todo';
 import { LocaleProvider } from './context/localeContext';
 import { TodoProvider } from './context/todoContext';
+import Invoice from './invoice';
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -14,7 +14,7 @@ const root = createRoot(document.getElementById('app'));
 root.render(
     <LocaleProvider>
         <TodoProvider>
-            <Todo />
+            <Invoice />
         </TodoProvider>
     </LocaleProvider>,
 );

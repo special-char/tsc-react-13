@@ -3,10 +3,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { default: merge } = require('webpack-merge');
 const developmentConfig = require('./webpack.dev.config');
 const productionConfig = require('./webpack.prod.config');
+const { resolve } = require('superagent/lib/request-base');
+const path = require('path');
 
 const commonConfig = {
     entry: './src/index.jsx',
     resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'), // Ensure this points to the correct directory
+        },
         extensions: ['.js', '.json', '.jsx'],
     },
     module: {

@@ -3,6 +3,7 @@ import TodoForm from './todoForm';
 import TodoList from './todoList';
 import TodoFooter from './todoFooter';
 import DeleteDialog from './deleteDialog';
+import { Button } from './components/ui/button';
 
 export default class Todo extends Component {
     render() {
@@ -11,6 +12,7 @@ export default class Todo extends Component {
                 <h1 className="text-4xl font-semibold my-4">
                     Todo Application
                 </h1>
+                <Button>Hello World</Button>
                 <TodoForm />
                 <TodoList />
                 <TodoFooter />
