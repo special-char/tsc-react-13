@@ -4,6 +4,14 @@ import './style.css';
 import { LocaleProvider } from './context/localeContext';
 import { TodoProvider } from './context/todoContext';
 import Invoice from './invoice';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
+import DashboardTemplate from './templates/dashboard.template';
+import Login from './pages/login';
+import Register from './pages/register';
+import AuthTemplate from './templates/auth.template';
+import { AuthProvider } from './context/auth';
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -12,11 +20,24 @@ document.body.innerHTML = '<div id="app"></div>';
 const root = createRoot(document.getElementById('app'));
 
 root.render(
-    <LocaleProvider>
-        <TodoProvider>
-            <Invoice />
-        </TodoProvider>
-    </LocaleProvider>,
+    <AuthProvider>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<DashboardTemplate />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                </Route>
+                <Route path="auth" element={<AuthTemplate />}>
+                    <Route index element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                </Route>
+                {/* <Route path="dashboard" element={<Dashboard />}>
+                <Route index element={<RecentActivity />} />
+                <Route path="project/:id" element={<Project />} />
+            </Route> */}
+            </Routes>
+        </BrowserRouter>
+    </AuthProvider>,
 );
 
 // // compoenent anme should start with upper case

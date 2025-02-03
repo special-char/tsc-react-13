@@ -5,6 +5,7 @@ module.exports = {
         // From current folder + dist folder that will contains all bundle
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.dev.js',
+        publicPath: '/',
     },
     mode: 'development',
     module: {

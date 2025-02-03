@@ -6,6 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[contenthash:8].js',
+        publicPath: '/',
     },
     mode: 'production',
     module: {
